@@ -4,7 +4,7 @@ const main = document.querySelector('main')
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
-    const res = await fetch('http://localhost:3000/adminpanel', {
+    const res = await fetch('http://193.168.49.62:3000/adminpanel', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
