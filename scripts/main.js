@@ -17,7 +17,7 @@ form.addEventListener('submit', async (e) => {
     form.btnSubmit.disabled = true
     await imgToBase64(form.photo.files[0])
     setTimeout(async () => {
-        const res = await fetch('http://localhost:3000/addphoto', {
+        const res = await fetch('http://193.168.49.62:3000/addphoto', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
