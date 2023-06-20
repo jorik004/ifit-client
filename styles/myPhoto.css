@@ -1,0 +1,14 @@
+.images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.galleryImg {
+    display: block;
+    max-width: 250px;
+}
+
+.error {
+    text-align: center;
+}
