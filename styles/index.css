@@ -1,0 +1,125 @@
+form>label {
+    display: block;
+    width: 300px;
+}
+
+main {
+    margin-top: 25px;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choiceFile {
+    background: lightgreen;
+    color: #43AA8B;
+    padding: 124px 0px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    margin-top: 5px;
+}
+
+.choiceFile2 {
+    background: lightcoral;
+}
+
+.choiceFile div {
+    width: 100%;
+    height: 275px;
+    border-radius: 10px;
+    display: block;
+    position: absolute;
+    top: -1px;
+    z-index: -10;
+}
+
+.choiceFile:active {
+    background: #00000050;
+}
+
+.choiceFileAnim {
+    background: cyan;
+    transform: scale(1.3);
+    opacity: 0;
+}
+
+form {
+    text-align: center;
+}
+
+label[for="login"] {
+    margin-top: 50px;
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+input[name="login"] {
+    margin-top: 5px;
+    padding: 10px 0 10px 15px;
+    width: 100%;
+    border-radius: 500px;
+    border: none;
+    background: #000;
+    color: #43AA8B;
+    font-size: 18px;
+    box-shadow: inset -2px -2px 3px #347964;
+}
+
+button[type="submit"] {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 500px;
+    padding: 6px 0px;
+    width: 100%;
+    cursor: pointer;
+    background: #000;
+    color: #43AA8B;
+    text-transform: uppercase;
+    transition: all .3s ease-in;
+}
+
+button:disabled {
+    background: #00000050;
+    color: #fff;
+}
+
+button[type="submit"]:hover {
+    background: #00000050;
+    color: #fff;
+}
+
+.addingPhoto {
+    position: absolute;
+    width: 350px;
+    transform: scale(0);
+    transform-origin: bottom;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    color: #43AA8B;
+    padding: 10px;
+    transition: all .3s ease-in;
+    z-index: 100;
+}
+
+.addingPhoto p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addingPhoto p img {
+    width: 24px;
+}
+
+.addingPhoto-active {
+    transform: scale(1);
+}

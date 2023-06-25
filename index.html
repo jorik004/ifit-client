@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,13 +11,16 @@
         href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/index.css">
 </head>
 
 <body>
+    <div class="push"><span></span></div>
+    <div class="addingPhoto"></div>
     <div class="wrapper">
         <header>
             <div>
-                <a class="active">Отправить</a>
+                <a class="active">Главная</a>
                 <a href="./pages/myGallery.html">Моя галерея</a>
             </div>
         </header>
@@ -26,13 +28,16 @@
         <main>
             <div>
                 <form method="post">
-                    <input type="file" name="photo">
-                    <input type="text" placeholder="login" name="login">
-                    <input type="radio" name="day" value="thirdDay" id="thirdDay">
-                    <label for="thirdDay">Ежедневное</label>
-                    <input type="radio" name="day" value="week" id="week">
-                    <label for="week">Недельное</label>
-                    <button name="btnSubmit" type="submit">submit</button>
+                    <input type="file" name="dayPhoto" id="dayPhoto" multiple hidden required>
+                    <label for="dayPhoto" class="choiceFile">
+                        Ежедневное
+                        <div></div>
+                    </label>
+                    <input type="file" name="weekPhoto" id="weekPhoto" multiple hidden required>
+                    <label for="weekPhoto" class="choiceFile choiceFile2">
+                        Еженедельное
+                        <div></div>
+                    </label>
                 </form>
 
             </div>

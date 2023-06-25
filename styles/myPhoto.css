@@ -1,12 +1,38 @@
+::-webkit-scrollbar {
+    background: #43AA8B;
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 500px;
+}
+
+main {
+    height: 90%;
+}
+
 .images {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+}
+
+
+.image {
+    width: 300px;
+}
+
+.image p {
+    font-size: 14px;
+    color: #000000b9;
 }
 
 .galleryImg {
     display: block;
-    max-width: 250px;
+    max-width: 300px;
 }
 
 .error {

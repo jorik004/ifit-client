@@ -1,0 +1,62 @@
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+label {
+    display: block;
+}
+
+form label {
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button {
+    display: block;
+}
+
+form {
+    width: 300px;
+}
+
+form input {
+    width: 93.5%;
+    padding: 10px;
+    border-radius: 500px;
+    border: none;
+    background: #000000d7;
+    color: #43AA8B;
+    font-size: 16px;
+    margin-top: 5px;
+    transition: all .3s ease-in;
+}
+
+form input:focus {
+    background: #000;
+    border: none;
+}
+
+form input[name="login"] {
+    margin-bottom: 15px;
+}
+
+form button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 500px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #000;
+    color: #43AA8B;
+}

@@ -1,24 +1,45 @@
-const form = document.forms[0]
-const main = document.querySelector('main')
+const push = document.querySelector('.push')
+const mainDiv = document.querySelector('main')
+if (localStorage.getItem('login') == null) {
+    document.location = '/pages/login.html'
+}
 
-
-form.addEventListener('submit', async (e) => {
-    e.preventDefault()
-    const res = await fetch('http://193.168.49.62:3000/adminpanel', {
+async function main() {
+    const res = await fetch('http://localhost:3000/adminpanel', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            login: form.login.value,
-            password: form.password.value
+            login: localStorage.getItem('login'),
+            password: localStorage.getItem('password'),
+            isCheck: false
         })
     })
 
     const data = await res.json()
-    form.parentElement.remove()
+    if (data.admin == 'null') {
+        push.children[0].textContent = 'Такого пользователя не существует!'
+        push.style.background = 'lightcoral'
+        push.classList.add('push-active')
+        setTimeout(() => {
+            push.classList.remove('push-active')
+            document.location = '/pages/login.html'
+        }, 3000);
+        return
+    }
+    else if (data.admin == 'wrong password') {
+        push.children[0].textContent = 'Неверный пароль'
+        push.style.background = 'lightcoral'
+        push.classList.add('push-active')
+        setTimeout(() => {
+            push.classList.remove('push-active')
+            document.location = '/pages/login.html'
+        }, 3000);
+        return
+    }
 
-    main.insertAdjacentHTML('afterbegin', `
+    mainDiv.insertAdjacentHTML('afterbegin', `
     <div class="panel">
     <div class="users">
 
@@ -58,10 +79,17 @@ form.addEventListener('submit', async (e) => {
             <div class="users-info"></div>
         `)
         usersInfoDiv = document.querySelector('.users-info')
+        if (!photos.length) {
+            usersInfoDiv.insertAdjacentHTML('afterbegin', `
+                <p>Пусто</p>`)
+            return
+        }
         photos.map(el => {
             usersInfoDiv.insertAdjacentHTML('afterbegin', `
             <img src=${el.body}>
         `)
         })
     })
-})
+}
+
+main()
