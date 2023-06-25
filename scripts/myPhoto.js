@@ -5,7 +5,7 @@ async function main() {
     const images = document.querySelector('.images')
     let data
     async function getUserPhoto(login, password) {
-        const res = await fetch('http://localhost:3000/getphoto', {
+        const res = await fetch('http://31.129.96.64:3000/getphoto', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
