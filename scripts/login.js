@@ -3,7 +3,7 @@ async function main() {
     const form = document.forms[0]
     let data
     async function getUser(login, password) {
-        const res = await fetch('http://localhost:3000/getphoto', {
+        const res = await fetch('http://31.129.96.64:3000/getphoto', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
