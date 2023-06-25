@@ -51,7 +51,7 @@ form.dayPhoto.addEventListener('change', () => {
         `)
         imgToBase64(form.dayPhoto.files[i])
         setTimeout(async () => {
-            const res = await fetch('http://localhost:3000/addphoto', {
+            const res = await fetch('http://31.129.96.64:3000/addphoto', {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json'
