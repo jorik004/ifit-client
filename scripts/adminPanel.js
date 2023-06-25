@@ -5,7 +5,7 @@ if (localStorage.getItem('login') == null) {
 }
 
 async function main() {
-    const res = await fetch('http://localhost:3000/adminpanel', {
+    const res = await fetch('http://31.129.96.64:3000/adminpanel', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
