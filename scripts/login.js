@@ -17,7 +17,7 @@ async function main() {
         return data
     }
     async function getAdmin(login, password) {
-        const res = await fetch('http://localhost:3000/adminpanel', {
+        const res = await fetch('http://31.129.96.64:3000/adminpanel', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
