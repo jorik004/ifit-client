@@ -51,7 +51,7 @@ form.dayPhoto.addEventListener('change', () => {
         `)
         imgToBase64(form.dayPhoto.files[i])
         setTimeout(async () => {
-            const res = await fetch('http://31.129.96.64:3000/addphoto', {
+            const res = await fetch('http://localhost:3000/addphoto', {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json'
@@ -86,7 +86,47 @@ form.dayPhoto.addEventListener('change', () => {
 })
 
 form.weekPhoto.addEventListener('change', () => {
-
+    data = []
+    for (let i = 0; i < form.weekPhoto.files.length; i++) {
+        const fileName = form.weekPhoto.files[i].name
+        addingPhotoDiv.classList.add('addingPhoto-active')
+        addingPhotoDiv.insertAdjacentHTML('afterbegin', `
+            <p>${fileName} <img class="addingPhotoIcon" src="./images/download.png"></p>
+        `)
+        imgToBase64(form.weekPhoto.files[i])
+        setTimeout(async () => {
+            const res = await fetch('http://localhost:3000/addphoto', {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    login: localStorage.getItem('login'),
+                    password: localStorage.getItem('password'),
+                    photobase64: data[i],
+                    day: 'weekDay'
+                })
+            })
+            const resStatus = await res.json()
+            if (resStatus.isAdded) {
+                addingPhotoDiv.children[i].children[0].src = "./images/check.png"
+                push.children[0].textContent = 'Успешно'
+                push.style.background = 'lightgreen'
+                push.classList.add('push-active')
+                setTimeout(() => {
+                    push.classList.remove('push-active')
+                }, 3000);
+            }
+            else {
+                push.children[0].textContent = 'Ошибка загрузки фото или неправильное имя пользователя!'
+                push.style.background = 'lightcoral'
+                push.classList.add('push-active')
+                setTimeout(() => {
+                    push.classList.remove('push-active')
+                }, 3000);
+            }
+        }, 2000)
+    }
 })
 
 // form.addEventListener('submit', async (e) => {

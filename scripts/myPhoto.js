@@ -4,8 +4,9 @@ async function main() {
     }
     const images = document.querySelector('.images')
     let data
+    let userPhoto = []
     async function getUserPhoto(login, password) {
-        const res = await fetch('http://31.129.96.64:3000/getphoto', {
+        const res = await fetch('http://localhost:3000/getphoto', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -23,7 +24,7 @@ async function main() {
         document.location = '/pages/login.html'
         return
     }
-    const userPhoto = data.photos
+    userPhoto = data.photos
     images.children[0].remove()
     if (!userPhoto.length) {
         images.insertAdjacentHTML('afterbegin', `
@@ -36,7 +37,7 @@ async function main() {
         images.insertAdjacentHTML('afterbegin', `
         <div class="image">
             <p>${date.toLocaleDateString()}</p>
-            <img class="galleryImg" src=${el.body} alt=${el.createdDate}>
+            <img class="galleryImg" src=${el.body} alt=${el.createdDate} loading="lazy">
         </div>
         `)
     })
